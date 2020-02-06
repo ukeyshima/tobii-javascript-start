@@ -11,11 +11,11 @@ sock.subscribe("TobiiState")
 let gazeData
 
 (async ()=>{
-    for await (const [topic,msg] of sock) {
+    for await (const [msg] of sock) {
         let receiveText = Buffer.from(msg).toString().split(" ")
         gazeData = {
-            x:receiveText[0],
-            y:receiveText[1]
+            x:receiveText[2],
+            y:receiveText[3]
         }        
       }
 })()
